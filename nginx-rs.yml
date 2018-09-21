@@ -15,8 +15,13 @@ spec:
       labels:
         app: nginx-pttest
     spec:
+      volumes:
+        - name: data-pv
       containers:
       - name: nginx-pttest
         image: nginx
         ports:
           - containerPort: 80
+        volumeMounts:
+          - name: data-pv
+            mountPath: /var/tmp
