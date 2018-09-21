@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-pttest-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: pttest
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx-pttest-svc
+          servicePort: 8080
